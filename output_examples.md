@@ -9,6 +9,8 @@
 * 📑[PDF / Docx Parsing](#pdf--docx-parsing)
 
 * 🎞️[Image / Scanned Document Parsing](#image--scanned-document-parsing)
+
+* 💲[Output Token Based Pricing Examples](#output-token-based-pricing-examples)
  
 * 𝄜 [Table Extraction](#table-extraction)
  
@@ -391,7 +393,7 @@ and other applications.
 
 ### When `inline_images = False`
 
-```You will get similar output as above but without the inline image id. For both options you will get a seperate list of extracted images with bounding box data and base64 encoded string of the image```
+```You will get similar output as above but without the inline image id. For both options you will get a seperate list of extracted images with bounding box data and base64 encoded string of the image.```
 
 * [Back to Table of Contents](#sample-output)
 
@@ -399,7 +401,7 @@ and other applications.
 
 ## Image / Scanned Document Parsing
 
-```Example```
+```input Image:```
 
 ![image_parsing_1](/examples_images/image_parsing_1.png)
 
@@ -454,9 +456,230 @@ Nonoperating income (expense) less net income (loss) attributable to noncontroll
   
 ---
 
+## 💲Output Token Based Pricing Examples
+
+```Example 1:```
+
+The below Page has multiple images and sufficient amount of text on a single page. The output token for below comes out to be 625 which will be charged as $0.00625
+
+![output_token_1](/examples_images/output_token_1.png)
+
+```
+[Image_3_1]
+
+AN OVERVIEW - PUMPS:
+
+Crompton Greaves Ltd., started manufacturing pumps in 1964 at worli. It was shifted to Ahmednagar later in 2000-2001. Today CG Pumps manufacture all types of pumps suitable for handling clear cold water, for Domestic Agricultural, and Industrial Segment. In the last 20 years, the CG Pumps has undergone a dramatic transformation in the areas of product range and capacities.
+
+The driving strengths of the CG Pumps are thrust on Quality, new product development and customer focus, which has led the CG Pumps to enjoy the status of market leadership in India.
+
+Today CG Pumps is offering widest product range under one roof, which differentiates it from it's competitors.
+
+QUALITY STANDARDS
+
+'Crompton' pumps are manufactured in accordance with and conforming to relevant B.I.S. standards. The products are designed to suit continuously changing environment, for easy installation, low running cost, improved efficiency and minimal maintenance. Factory has modern state of art Inspection and Testing set-up. Strict quality assurance plan and rigorous testing of pumps ensures high efficiency and enhanced life of products. Modern dynamic balancing m/c, digital test panels, digital flow meters, digital pressure measuring devises, 60-cycle power generating set, automatic box strapping m/c, ensure precision and consistency in Quality. Continuos training to all employees is the thrust to improve their skill, performance and efficiency. CG Pumps is practicing Six Sigma Quality Drive to improve the Quality of the products as per International Standards.
+
+Today CG Pumps has an Approval from various Govt. Dept. like,
+
+*   Govt. of Tripura • Rajasthan P.H.E.D. • Delhi MES, Jal Board • OLIC - Bhubaneshwar, Govt. of Orissa • Northen Railway
+*   Maharashtra Jeevan Pradhikaran • DGS & D.
+
+We are regular suppliers to various Govt. bodies.
+
+The pumpset supplied to these Govt. bodies have been approved by third party like DGS & D, S.G.S. Lloyd's etc.
+
+Crompton Greaves Limited, is committed towards the society by giving pollution free, non-hazardous, energy efficient products.
+
+[Image_3_6]
+
+Quality Assurance
+
+[Image_3_2]
+
+Inspection
+
+[Image_3_3]
+
+Computerized routine test
+
+[Image_3_4]
+
+Type testing
+
+[Image_3_5]
+
+Training Centre
+```
+
+```Example 2:```
+
+The below page has math equations with good amount of text. The output token for this comes out to be 1175 which is charged as $0.001175.
+
+![output_token_2](/examples_images/output_token_2.png)
+
+```
+# TECHNICAL DATA
+
+## TERMINOLOGY AND HEAD CALCULATIONS
+
+1.  **CAPACITY (Discharge):** Rate of flow of liquid measured in litres per minute or gallons per minute.
+2.  **TOTAL HEAD:** The standard unit for expressing head shall be the metres, thus the head in metres of liquid column = pressure in kg/cm² x 10.
+3.  **FRICTIONAL LOSSES:** Resistance by inner surface of pipe and fittings through which liquid is being pumped.
+4.  **CAVITATION:** The formation of cavities in a fluid, is a phenomenon involving the appearance and subsequent sudden collapse of vapour bubbles in a flow of fluid.
+5.  **SUCTION LIFT (HS):** Is the vertical distance between pump center line and water level.
+6.  **DELIVERY HEAD(HD):** Vertical Distance above the pump centreline to the top most point of the delivery.
+7.  **N.P.S.H.:** Net Positive Suction Head. It is the pressure in terms of absolute head in meters or feet at a pump suction branch minus vapour pressure of the liquid at its working temperature. It can be simply taken as entry loss at the impeller eye in the case of centrifugal pump.
+8.  **VAPOUR PRESSURE:** Can be defined as that pressure which is just necessary to keep a liquid from boiling at a particular given temperature.
+9.  **DUTY POINT:** The pump is designed for one point where the maximum pump Eff. / overall Eff is achieved. This point is called Duty Point or operating Point.
+10. **PUMP EFF.:** The ratio of the pump output to the pump input
+    Thus Pump eff. =  
+    $\\frac{(T. Head \\times Discharge) \\text{ in } kW}{Motor Out put \\text{ in } kW} \\times 100$
+
+11. **OVERALL EFF.:** The ratio of the pump output to the motor input
+    Thus Overall Eff. =  
+    $\\frac{Pump Efficiency \\times Motor Efficiency}{Pump Input} \\times \\frac{Motor Output}{Motor Input} = \\frac{Pump Output}{Motor Input}$
+
+12. **SPECIFIC GRAVITY:** Ratio of wt of given volume of fluid compared to same wt of equal volume of water at std temp & pressure. Specific Gravity of Water is 1.0.If fluid has Specific gravity other than water (1.0) multiply brake horsepower for water by specific gravity of fluid to obtain horsepower required.
+13. **VISCOSITY:** Property of Internal Friction of a fluid or resistance to motion of its particles. Measuring a fluid's resistance to flow will give coefficient of viscosity. High viscosity fluids are resistant to flow and appear thick and sluggish. Viscosity is independent of specific gravity and increases with increase in temperature. Viscous fluids tend to reduce the capacity, head and efficiency while increasing the brake horsepower required. Centrifugal Pumps may be used for viscosities upto 1000 1500 SSU. Above this limit Rotary Pumps are used.
+
+## CALCULATION OF TOTAL HEAD
+
+Total Head H of the Pumpset is given by:
+(Ref. Sketch)
+
+$H = HS^* + Hd + hfs^* + hfd + HLf + \\frac{Vd^2}{2g}$
+
+\* In case of submersible pumpset HS & hfs = 0
+
+Where
+
+HS = Static suction lift, the difference in level between the center line of pump and the water level in the sump in feet or metres.
+
+Hd = Static Delivery head, the difference in level between the centre line of the pump and the highest point in the delivery line in feet or metres.
+
+hfs = Friction losses in suction pipe line in feet or metres.
+
+hfd = Friction losses in delivery pipe line in feet or metres.
+
+HLf = Total friction losses due to pipe fittings in suction and delivery pipeline in feet or meters, e.g. strainer with foot valve, bends, valves, etc.
+
+$\\frac{Vd^2}{2g}$ = Velocity head of water in the delivery pipe in feet or meters.
+
+Where Vd = Velocity of water in delivery pipe = Discharge / Area of pipe in ft/sec or m/sec.
+
+g = Acceleration due to gravity = 9.81 m/sec² = 32.2 ft/sec²
+
+To calculate the above parameters, the following details are required.
+a. Required discharge in LPM or GPM.
+b. Size and length of the suction & delivery pipes.
+c. Size, type and number of pipe fittings on suction and delivery sides.
+d. Variation in water level on suction side.
+
+In working out the above, care has to be taken to see that constant units are used.
+```
+
+```Example 3:```
+
+The below page is full of tables which results in lots of texts in an small area. The output token comes out to be 1728 which is charged as $0.001728.
+
+![output_token_3](/examples_images/output_token_3.png)
+
+```
+# CONVERSION TABLE
+
+| Discharge : |  |  |
+|---|---|---|
+| 1 Imp Gallon | - | 4.546 ltrs. |
+| 1 US Gallon | - | 3.785 ltrs. |
+| 1 Cu m. | - | 1000 ltrs. |
+| 1 Cu ft. | - | 28.32 ltrs. |
+
+## Discharge rate :
+
+| 1 m³/h | - | 16.67 l/min. |
+| 1 m³/s | - | 60,000 l/min. |
+| 1 l/s | - | 60 l/min |
+| 1 Cu ft/s | - | 1699.2 l/min. |
+| 1 Imp. GPH | - | 0.0757 l/min |
+|  |  | 0.00126 l/Sec. |
+
+## Head :
+
+| 1 mtrs. | - | 3.28 ft. |
+| 1 ft | - | 0.3048 m. |
+| 1 kg/cm² | - | 10 mtrs |
+
+## Pressure :
+
+| 1 Atmosphere | - | 1.033 kg/cm² |
+| 1 Atmosphere | - | 14.7 lb/in² |
+| 1 Atmosphere | - | 10.34 mwc |
+| 1 lb/in² | - | 0.704 mwc |
+| 1 lb/in² | - | 2.31 ft wc |
+| 1 lb/in² | - | 51.6 mm of mercury. |
+| 1 cusec | - | 1705 lpm |
+|  | - | 1 Acre inch/hr |
+| 1 Cu mec | - | 20558.3 lpm. |
+|  | - | 1 Acre ft/hr. |
+
+## Power :
+
+| 1 HP (Si) | - | 0.746 kW |
+|  | - | 746 W |
+| 1 HP (Metric) | - | 0.736 kW |
+|  | - | 736W |
+| 1 kW | - | 1000 W |
+
+## Weight :
+
+| 1 kg. | - | 1000 gm. |
+| 1 kg. | - | 2.2046 lb. |
+| 1 lb. | - | 0.4536 kg. |
+
+# DISCHARGE RATE TABLE
+
+| Veenotch reading in inch | Veenotch reading in mm. | Discharge rate in GPH (imp) | Discharge rate in lpm. |
+|---|---|---|---|
+| 1/2" | 12.7 | 21 | 1.59 |
+| 3/4" | 19.05 | 57.42 | 4.35 |
+| 1" | 25.4 | 117.22 | 8.88 |
+| 1 1/4" | 31.75 | 203.8 | 15.44 |
+| 1 1/2" | 38.1 | 320.5 | 24.28 |
+| 1 3/4" | 44.45 | 469.52 | 35.57 |
+| 2" | 50.8 | 653.8 | 49.53 |
+| 2 1/4" | 57.15 | 875.56 | 66.33 |
+| 2 1/2" | 63.5 | 1137.05 | 86.14 |
+| 2 3/4" | 69.85 | 1440.12 | 109.1 |
+| 3" | 76.2 | 1786.49 | 135.39 |
+| 3 1/4" | 82.55 | 2179.45 | 165.11 |
+| 3 3/4" | 95.25 | 3108.07 | 235.46 |
+| 4" | 101.6 | 3647.56 | 276.33 |
+| 4 1/4" | 107.95 | 4239.31 | 321.16 |
+| 4 1/2" | 114.3 | 4884.92 | 370.07 |
+| 4 3/4" | 120.65 | 5585.84 | 423.17 |
+| 5" | 127 | 6343.95 | 480.6 |
+| 5 1/4" | 133.35 | 7159.55 | 542.39 |
+| 5 1/2" | 139.7 | 8034.97 | 608.71 |
+| 5 3/4" | 146.05 | 8991.64 | 679.67 |
+| 6" | 152.4 | 9970.22 | 755.32 |
+| 6 1/4" | 158.75 | 11032.43 | 835.79 |
+| 6 1/2" | 165.1 | 12159.44 | 921.17 |
+| 6 3/4" | 171.45 | 13352.46 | 1011.55 |
+| 7" | 177.08 | 14466.41 | 1095.94 |
+| 7 1/4" | 184.15 | 15941.38 | 1207.68 |
+| 7 1/2" | 190.5 | 17339.65 | 1313.61 |
+| 7 3/4" | 196.85 | 18808.55 | 1424.89 |
+| 8" | 203.2 | 20349.38 | 1541.62 |
+
+```
+
+* [Back to Table of Contents](#sample-output)
+
+---
+
 ## Table Extraction
 
-This API will only extract any ```Tables``` or ```Tabular Data``` and convert to excel sheet or csv. Adding one ```Bank Statement``` Example:
+The API will only extract any ```Tables``` or ```Tabular Data``` and convert to excel sheet or csv. Adding one ```Bank Statement``` Example:
 
 ```Input:```
 
@@ -493,6 +716,36 @@ This API will only extract any ```Tables``` or ```Tabular Data``` and convert to
 | 05-18                 | 1002         | 30.00  | 00036547854      |
 | 05-24                 | 1003         | 200.00 | 00094613547      |
 | **Total Checks Paid** |              |        | **$305.00**      |
+
+---------------------------------------------
+```
+
+```Another Example:```
+
+![table_extract_2](/examples_images/table_extract_2.png)
+
+```Output (you will get below tables as excel sheets or csv, here just adding plain text):```
+
+```
+| CODIGO  | DESCRIPCION               | UN  | UN PRECIO | DTOS. | TOTAL |
+| 1168554 | COCACOLA ZERO UR237 C24   | 2   | 24,72     | -9,89 | 39,55 |
+|         | Promoción Múltiple: 55878 |     |           |       |       |
+| 1020429 | LLET NOSTRA ENT 1,5L 6BOT | 1   | 10,24     | -8,94 | 9,30  |
+
+---------------------------------------------
+
+| ENVASE  | DESCRIPCION          | ENTREGA | RECOGIDA | IMPORTE |
+| 1160960 | BOTELLA UR237 COBEGA | 2 CJ    | -2 CJ    | 0,00    |
+| 1160001 | PLASTICO UR20 COBEGA | 2 UN    | -2 UN    | 0,00    |
+
+---------------------------------------------
+
+| CONCEPTO           | IMPORTE   | BASE IVA | %IVA | CUOTA IVA |
+| PROD+ENVASES       | 59,68     | 9,30     | 2.0  | 0.19      |
+| DESCUENTOS         | -10,83    | 58,43    | 21.0 | 12,27     |
+| PTO.VERDE          |           |          |      |           |
+| SERV.LOG           | 18,88     |          |      |           |
+| **TOTAL ENTREGA:** | 88,19 EUR |          |      |           |
 
 ---------------------------------------------
 ```
@@ -640,22 +893,23 @@ This API will only extract any ```Tables``` or ```Tabular Data``` and convert to
   }
 ```
 
-It's better to also provide a schema so that you know the keys of the json to extract and process further e.g.:
+It's better to also provide a schema in the prompt so that you know the keys of the json to extract and process further e.g. prompt:
 
 ```
 extract the product name, product link, image link and price for all the products. The format should be:
-{
-  "1": {
-        "Product_Name": ,
-        "Product_Link": ,
-        "Image_Link": ,
-        "Price":
-        },
-  "2": {
-        "Product_Name": ,
-        ...
-        },
-}
+[
+  {
+    "product_name": ,
+    "product_link": ,
+    "image_link": ,
+    "price":
+  },
+  {
+    "product_name": ,
+    ...
+  },
+  ...
+]
 ```
 
 ------------------------------------------------
