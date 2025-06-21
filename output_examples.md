@@ -460,7 +460,7 @@ Nonoperating income (expense) less net income (loss) attributable to noncontroll
 
 ```Example 1:```
 
-The below Page has multiple images and sufficient amount of text on a single page. The output token for below comes out to be 625 which will be charged as $0.00625
+The below Page has multiple images and sufficient amount of text on a single page. The output token for below comes out to be 625 which will be charged as $0.000625
 
 ![output_token_1](/examples_images/output_token_1.png)
 
