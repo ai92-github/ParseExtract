@@ -9,12 +9,11 @@
   - [Request Parameters](#request-parameters)
 
 
-* 🕷️[Webpage / URL Crawling API](#webpage--url-crawling)
+* 🕷️[Webpage / URL Crawling API](#%EF%B8%8Fwebpage--url-crawling)
   - [Sync](#sync-api-call-1)
   - [Async](#async-api-call-1)
   - [Fetch Results API](#fetch-results-using-the-job_id)
   - [Request Parameters](#request-parameters-1)
-
 
 * 📑[PDF / Docx Parsing](#pdf--docx-parsing)
   - [Sync](#sync-api-call-2)
@@ -23,19 +22,19 @@
   - [Form Data Parameters](#form-data-parameters)
 
 
-* 🎞️[Image / Scanned Document Parsing](#image--scanned-document-parsing)
+* 🎞️[Image / Scanned Document Parsing](#%EF%B8%8Fimage--scanned-document-parsing)
   - [Sync](#sync-api-call-3)
   - [Async](#async-api-call-3)
   - [Form Data Parameters](#form-data-parameters-1)
 
 
-* 𝄜[Table Extraction](#table-extraction)
+* 𝄜 [Table Extraction](#table-extraction)
   - [Sync](#sync-api-call-4)
   - [Async](#async-api-call-4)
   - [Form Data Parameters](#form-data-parameters-2)
 
 
-* 🗃️[Structured Data Extraction](#structured-data-extraction)
+* 🗃️[Structured Data Extraction](#%EF%B8%8Fstructured-data-extraction)
   - [Sync](#sync-api-call-5)
   - [Async](#async-api-call-5)
   - [Form Data Parameters](#form-data-parameters-3)
@@ -44,7 +43,7 @@
 
 # 🌐Webpage / URL Scraping:
 
-`API to Scrape a single url. For Crawling refer to:`[Crawling API](#webpage--url-crawling)
+`API to Scrape a single url. For Crawling refer to:`[Crawling API](#%EF%B8%8Fwebpage--url-crawling)
 
 ### Sync API Call
 ```python
