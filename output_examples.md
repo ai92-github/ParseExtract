@@ -186,7 +186,9 @@ Table caption (name and description of table)
         * Non-Discrimination: https://crco.calpoly.edu/Notice_of_Non-Discrimination
 ```
 
-* [Back to Table of Contents](#sample-output)
+[Visit our website](https://parseextract.com)
+
+[Back to Table of Contents](#sample-output)
 
 ---
 
@@ -395,7 +397,9 @@ and other applications.
 
 ```You will get similar output as above but without the inline image id. For both options you will get a seperate list of extracted images with bounding box data and base64 encoded string of the image.```
 
-* [Back to Table of Contents](#sample-output)
+[Visit our website](https://parseextract.com)
+
+[Back to Table of Contents](#sample-output)
 
 ---
 
@@ -452,7 +456,9 @@ GAAP. Operating income of $1.6 billion increased $111 million and operating marg
 Nonoperating income (expense) less net income (loss) attributable to noncontrolling interests ("NCI") decreased $30 million from the three months ended September 30, 2022, reflecting the impact of $267 million of noncash gains related to BlackRock's strategic minority investment in iCapital Network, Inc. ("iCapital") during 2022, partially offset by higher mark-to-market revaluation of the Company's seed capital portfolio, net of impact of certain hedges, higher gains on private equity co-investment portfolios, and higher interest and dividend income during the three months ended September 30, 2023.
 ```
 
-* [Back to Table of Contents](#sample-output)
+[Visit our website](https://parseextract.com)
+
+[Back to Table of Contents](#sample-output)
   
 ---
 
@@ -673,7 +679,9 @@ The below page is full of tables which results in lots of texts in an small area
 
 ```
 
-* [Back to Table of Contents](#sample-output)
+[Visit our website](https://parseextract.com)
+
+[Back to Table of Contents](#sample-output)
 
 ---
 
@@ -750,7 +758,9 @@ The API will only extract any ```Tables``` or ```Tabular Data``` and convert to 
 ---------------------------------------------
 ```
 
-* [Back to Table of Contents](#sample-output)
+[Visit our website](https://parseextract.com)
+
+[Back to Table of Contents](#sample-output)
   
 ---
 
@@ -911,5 +921,9 @@ extract the product name, product link, image link and price for all the product
   ...
 ]
 ```
+
+[Visit our website](https://parseextract.com)
+
+[Back to Table of Contents](#sample-output)
 
 ------------------------------------------------
