@@ -31,6 +31,7 @@
 * 𝄜 [Table Extraction](#table-extraction)
   - [Sync](#sync-api-call-4)
   - [Async](#async-api-call-4)
+  - [Save Tables as Excel/csv](#save-tables-as-excelcsv)
   - [Form Data Parameters](#form-data-parameters-2)
 
 
