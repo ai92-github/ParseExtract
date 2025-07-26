@@ -466,7 +466,7 @@ asyncio.run(get_response_async())
 
 ## 𝄜Table Extraction:
 
-`It will extract all the tables and tabular data from pdf, docx, images.`
+`It will extract all the tables and tabular data from pdf, docx, images. The API response will have excel and csv file as base64 encoded strings which you can decode to excel and csv files.`
 
 `Note:` At present it does not support multi-page pdf/docx file. If you upload multi-page documents it will only extract tables from the 1st page. Contact Us for multi-page support.
 
@@ -531,6 +531,34 @@ async def get_response_async():
 
 # Run the async function
 asyncio.run(get_response_async())
+```
+### Save Tables as Excel/csv:
+```python
+import json, base64
+
+api_response = response.json()
+
+# get excel and csv files to download from the response
+file_to_download = json.loads(api_response.get('file_to_download',None))
+
+# You can set download_excel or download_csv = False if you do not need any one of them
+download_excel = True
+download_csv = True
+
+# saving excel / csv files
+if file_to_download:
+  for table_data in file_to_download:
+    output_filename =  table_data['id']
+    if not download_excel and table_data['id'].endswith('.xlsx'):
+      continue
+    if not download_csv and table_data['id'].endswith('.csv'):
+      continue
+    decoded_bytes = base64.b64decode(table_data['base64_string'])
+    with open(output_filename, "wb") as f:
+        f.write(decoded_bytes)
+    print(f"{output_filename} created successfully from Base64 data.")
+else:
+  print('No files to download')
 ```
 
 ### Form Data Parameters:
