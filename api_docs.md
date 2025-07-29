@@ -31,6 +31,7 @@
 * 𝄜 [Table Extraction](#table-extraction)
   - [Sync](#sync-api-call-4)
   - [Async](#async-api-call-4)
+  - [Fetch Extracted Tables Using Job_id for Multi-Page Documents](#fetch-extracted-table-using-job_id-for-multi-page-documents)
   - [Save Tables as Excel/csv](#save-tables-as-excelcsv)
   - [Form Data Parameters](#form-data-parameters-2)
 
