@@ -485,6 +485,8 @@ headers = {"Authorization":f"Bearer {api_key}"}
 
 # The pdf/docx/image file path
 file_path = 'your-file-path'
+extraction_option = "option_b"
+page_no = None  # use None if you want all pages
 
 # Timeouts
 timeout = (10, 60) # 10 seconds connect, 60 seconds read
@@ -493,11 +495,12 @@ timeout = (10, 60) # 10 seconds connect, 60 seconds read
 # We send the file as multi-form data
 with open(file_path, 'rb') as f:
     files = {'file': (file_path, f)}
-    response = requests.post(api_url, files=files, headers=headers, timeout=timeout)
+    data={"extraction_option":extraction_option, "page_no":page_no}
+    response = requests.post(api_url, files=files, data=data, headers=headers, timeout=timeout)
 
 print(response.json())
 if response.json().get('job_id','')!='':
-  print(f'Extraction in process. {response.json().get('tables','')})
+  print(f"Extraction in process. {response.json().get('tables','')}")
 ```
 
 ### Async API Call
@@ -513,29 +516,36 @@ headers = {"Authorization":f"Bearer {api_key}"}
 
 # The pdf/docx file path
 file_path = 'your-file-path'
+extraction_option = "option_b"
+page_no = None  # use None if you want all pages
 
 # POST Request (Async)
 # We send the file and all parameters as multi-form data
-async def extract_table_async(api_url, file_path):
+async def extract_table_async(api_url, file_path, extraction_option=extraction_option, page_no=page_no):
     async with aiofiles.open(file_path, 'rb') as file:
         file_content = await file.read()
         files = {'file': (file_path, file_content)}
+        data={"extraction_option":extraction_option, "page_no":page_no}
         timeout = httpx.Timeout(10, read=60)
         async with httpx.AsyncClient() as client:
-            response = await client.post(api_url, files=files, headers=headers, timeout=timeout)
+            response = await client.post(api_url, files=files, data=data, headers=headers, timeout=timeout)
             return response
 
-# response = await extract_table_async(api_url, file_path)
-# or use asyncio
-import asyncio
-async def get_response_async():
-    response = await extract_table_async(api_url, file_path)
-    print(response.json())
-    if response.json().get('job_id','')!='':
-      print(f'Extraction in process. {response.json().get('tables','')})
+response = await extract_table_async(api_url, file_path)
+print(response.json())
+if response.json().get('job_id','')!='':
+  print(f"Extraction in process. {response.json().get('tables','')}")
 
-# Run the async function
-asyncio.run(get_response_async())
+# # or use asyncio
+# import asyncio
+# async def get_response_async():
+    # response = await extract_table_async(api_url, file_path)
+    # print(response.json())
+    # if response.json().get('job_id','')!='':
+      # print(f"Extraction in process. {response.json().get('tables','')}")
+
+# # Run the async function
+# asyncio.run(get_response_async())
 ```
 
 ### Fetch Extracted Table using job_id (for multi-page documents)
@@ -547,15 +557,18 @@ job_id = response.json().get('job_id','')  # the-job-id-from-the-table-extract-e
 
 # API URL
 # Add the job id as the query string parameter
-api_url = f"https://api.parseextract.com/v1/fetch-table-extract?job_id={job_id}"
-
-# Authorization
-api_key = os.environ["PARSEEXTRACT_API_KEY"]
-headers = {"Authorization":f"Bearer {api_key}"}
-
-# GET Request
-response = requests.get(api_url, headers=headers)
-print(response.json())
+if job_id != '':
+  api_url = f"https://api.parseextract.com/v1/fetch-table-extract?job_id={job_id}"
+  
+  # Authorization
+  api_key = os.environ["PARSEEXTRACT_API_KEY"]
+  headers = {"Authorization":f"Bearer {api_key}"}
+  
+  # GET Request
+  response = requests.get(api_url, headers=headers)
+  print(response.json())
+else:
+  print('no job id')
 ```
 
 ### Save Tables as Excel/csv:
@@ -596,7 +609,7 @@ else:
 | -------- | ---------------------------------------- |
 | `files`    | The document file. Refer the above example for usage. |
 | `extraction_option`    | Either 'option_a' or 'option_b'. Default is 'option_b' |
-| `page_no`    | If you want to extract any single page_no. the value should be an integer. Default: None |
+| `page_no`    | If you want to extract any single page_no. The value should be an integer. Page No. starts from 1. Default: None (to extract all pages) |
 
 * [Back to Table of Contents](#apis)
 
