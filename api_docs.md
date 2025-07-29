@@ -469,7 +469,7 @@ asyncio.run(get_response_async())
 
 `It will extract all the tables and tabular data from pdf, docx, images. The API response will have excel and csv file as base64 encoded strings which you can decode to excel and csv files.`
 
-`Note:` At present it does not support multi-page pdf/docx file. If you upload multi-page documents it will only extract tables from the 1st page. Contact Us for multi-page support.
+`Note:` If the no. of pages in the document is more than 1 then you will get a job_id in the API response with estimated time. You can later use the `/fetch-table-extract` API to get the status and output using the job_id. If you pass a single page document or multi-page document but with a page_no or a single image (multiple image is not supported) then you will receive the output in the same API response without any job_id.
 
 ### Sync API Call
 ```python
@@ -494,8 +494,9 @@ with open(file_path, 'rb') as f:
     files = {'file': (file_path, f)}
     response = requests.post(api_url, files=files, headers=headers, timeout=timeout)
 
-extracted_tables = response.json().get('text','')
-print(extracted_tables)
+print(response.json())
+if response.json().get('job_id','')!='':
+  print(f'Extraction in process. {response.json().get('tables','')})
 ```
 
 ### Async API Call
@@ -529,10 +530,33 @@ import asyncio
 async def get_response_async():
     response = await extract_table_async(api_url, file_path)
     print(response.json())
+    if response.json().get('job_id','')!='':
+      print(f'Extraction in process. {response.json().get('tables','')})
 
 # Run the async function
 asyncio.run(get_response_async())
 ```
+
+### Fetch Extracted Table using job_id (for multi-page documents)
+```python
+import requests
+
+# Job ID
+job_id = response.json().get('job_id','')  # the-job-id-from-the-table-extract-endpoint
+
+# API URL
+# Add the job id as the query string parameter
+api_url = f"https://api.parseextract.com/v1/fetch-table-extract?job_id={job_id}"
+
+# Authorization
+api_key = os.environ["PARSEEXTRACT_API_KEY"]
+headers = {"Authorization":f"Bearer {api_key}"}
+
+# GET Request
+response = requests.get(api_url, headers=headers)
+print(response.json())
+```
+
 ### Save Tables as Excel/csv:
 ```python
 import json, base64
@@ -540,14 +564,17 @@ import json, base64
 api_response = response.json()
 
 # get excel and csv files to download from the response
-file_to_download = json.loads(api_response.get('file_to_download',None))
+try:
+  file_to_download = json.loads(api_response.get('file_to_download',[]))
+except:
+  file_to_download = []
 
 # You can set download_excel or download_csv = False if you do not need any one of them
 download_excel = True
 download_csv = True
 
 # saving excel / csv files
-if file_to_download:
+if file_to_download!=[]:
   for table_data in file_to_download:
     output_filename =  table_data['id']
     if not download_excel and table_data['id'].endswith('.xlsx'):
@@ -567,6 +594,8 @@ else:
 | Name   | Description                              |
 | -------- | ---------------------------------------- |
 | `files`    | The document file. Refer the above example for usage. |
+| `extraction_option`    | Either 'option_a' or 'option_b'. Default is 'option_b' |
+| `page_no`    | If you want to extract any single page_no. the value should be an integer. Default: None |
 
 * [Back to Table of Contents](#apis)
 
