@@ -298,7 +298,7 @@ print(job_id)
 
 ### Async API Call
 ```python
-import httpx
+import httpx, aiofiles
 
 # API URL
 api_url = "https://api.parseextract.com/v1/pdf-parse"
@@ -414,7 +414,7 @@ print(parsed_text)
 
 ### Async API Call
 ```python
-import httpx
+import httpx, aiofiles
 
 # API URL
 api_url = "https://api.parseextract.com/v1/image-parse"
@@ -435,7 +435,7 @@ payload = {"image_option":image_option}  # add all other parameters
 # POST Request (Async)
 # We send the file and all parameters as multi-form data
 async def parse_image_async(api_url, image_file_path, image_option):
-    async with aiofiles.open(pdf_file_path, 'rb') as file:
+    async with aiofiles.open(image_file_path, 'rb') as file:
         file_content = await file.read()
         files = {'file': (image_file_path, file_content)}
         timeout = httpx.Timeout(10, read=60)
@@ -443,7 +443,7 @@ async def parse_image_async(api_url, image_file_path, image_option):
             response = await client.post(api_url, files=files, data=payload, headers=headers, timeout=timeout)
             return response
 
-# response = await parse_image_async(api_url, image_file_path, pdf_option)
+# response = await parse_image_async(api_url, image_file_path, image_option)
 # or use asyncio
 import asyncio
 async def get_response_async():
