@@ -273,7 +273,7 @@ pdf_file_path = 'your-pdf-or-docx-file-path.pdf or url'
 
 # Other Form Data Parameters (refer table below for all available parameters)
 pdf_option = 'option_b'
-inline_images = True
+inline_images = False
 get_base64_images = True
 
 # Timeouts
@@ -312,7 +312,7 @@ pdf_file_path = 'your-pdf-or-docx-file-path.pdf or url'
 
 # Other Form Data Parameters (refer table below for all available parameters)
 pdf_option = 'option_b'
-inline_images = True
+inline_images = False
 get_base64_images = True
 
 # Payload
@@ -370,7 +370,7 @@ print(response.json().get('images',''))
 | `files`    | The pdf/docx file. Refer the above example for usage. |
 | `url`   | The pdf url (you can either use file upload or give a url) |
 | `pdf_option`  | either 'option_a' or 'option_b'. Default: 'option_b'. Refer www.parseextract.com/#FAQ for more details. |
-| `inline_images`    | Should the images ID be added inline with the text in the same position as they appear in the document. Default: True |
+| `inline_images`    | Should the images ID be added inline with the text in the same position as they appear in the document. Default: False |
 | `get_base64_images`    | Get the extracted images as base64 strings. At present only the base64 encoded string is available if you want to save the images locally. Default: True |
 
 * [Back to Table of Contents](#apis)
