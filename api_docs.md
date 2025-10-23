@@ -656,7 +656,7 @@ print(response.json())
 
 ### Async API Call
 ```python
-import httpx
+import httpx, aiofiles
 
 # API URL
 api_url = "https://api.parseextract.com/v1/data-extract"
@@ -686,7 +686,7 @@ async def extract_data_async(api_url, file_path, payload):
             response = await client.post(api_url, files=files, data=payload, headers=headers, timeout=timeout)
             return response
 
-# response = await extract_data_async(api_url, file_path)
+# response = await extract_data_async(api_url, file_path, payload)
 # or use asyncio
 import asyncio
 async def get_response_async():
