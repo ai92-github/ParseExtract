@@ -677,8 +677,8 @@ payload = {"prompt":prompt}  # add url to the payload if your input is an url
 
 # POST Request (Async)
 # We send the file and all parameters as multi-form data
-async def extract_data_async(api_url, image_file_path, image_option):
-    async with aiofiles.open(pdf_file_path, 'rb') as file:
+async def extract_data_async(api_url, file_path, payload):
+    async with aiofiles.open(file_path, 'rb') as file:
         file_content = await file.read()
         files = {'file': (file_path, file_content)}
         timeout = httpx.Timeout(10, read=120)
