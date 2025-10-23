@@ -690,7 +690,7 @@ async def extract_data_async(api_url, file_path, payload):
 # or use asyncio
 import asyncio
 async def get_response_async():
-    response = await extract_data_async(api_url, file_path,)
+    response = await extract_data_async(api_url, file_path, payload)
     print(response.json())
 
 # Run the async function
