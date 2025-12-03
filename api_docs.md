@@ -704,6 +704,7 @@ asyncio.run(get_response_async())
 | `files`    | The document file. Refer the above example for usage. |
 | `url`   | The url (you can either use file upload or give a url) |
 | `prompt`  | Your extraction prompt. Describe what you want to extract. Give a json schema example in the prompt string as plain text if required. |
+| `json_out`| If you `do not want` JSON output format then pass json_out=1 (1 as an integer) |
 
 * [Back to Table of Contents](#apis)
 
