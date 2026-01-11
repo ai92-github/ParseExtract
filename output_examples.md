@@ -466,7 +466,7 @@ Nonoperating income (expense) less net income (loss) attributable to noncontroll
 
 ```Example 1:```
 
-The below Page has multiple images and sufficient amount of text on a single page. The output token for below comes out to be 625 which will be charged as $0.000625
+The below Page has multiple images and sufficient amount of text on a single page. The output token for below comes out to be 650 which will be charged as $0.0008125
 
 ![output_token_1](/examples_images/output_token_1.png)
 
@@ -519,7 +519,7 @@ Training Centre
 
 ```Example 2:```
 
-The below page has math equations with good amount of text. The output token for this comes out to be 1175 which is charged as $0.001175.
+The below page has math equations with good amount of text. The output token for this comes out to be 1175 which is charged as $0.001468.
 
 ![output_token_2](/examples_images/output_token_2.png)
 
@@ -586,7 +586,7 @@ In working out the above, care has to be taken to see that constant units are us
 
 ```Example 3:```
 
-The below page is full of tables which results in lots of texts in an small area. The output token comes out to be 1728 which is charged as $0.001728.
+The below page is full of tables which results in lots of texts in an small area. The output token comes out to be 1728 which is charged as $0.00216.
 
 ![output_token_3](/examples_images/output_token_3.png)
 
